@@ -25,6 +25,7 @@ import datetime
 # %%
 
 today = datetime.datetime.today()
+# today = datetime.datetime(year=2020, month=3, day=15) # Fix a date here, if desired
 
 # Get COVID data
 raw_covid_data = pd.read_csv(
@@ -42,6 +43,8 @@ raw_population_data = pd.read_csv(
 # %% [md]
 # Clean data
 # %%
+
+# Grab important columns only
 important_columns = [
     "date",
     "county",
@@ -52,8 +55,15 @@ important_columns = [
 ]
 raw_covid_data = raw_covid_data[important_columns]
 raw_covid_data = raw_covid_data.dropna()
-raw_covid_data["fips"] = raw_covid_data["fips"].astype(int)
 
+# Set some types
+raw_covid_data["fips"] = raw_covid_data["fips"].astype(int)
+raw_covid_data["date"] = pd.to_datetime(raw_covid_data["date"])
+
+# Trim data to before today, in the case of backtesting
+raw_covid_data = raw_covid_data[raw_covid_data["date"] <= today]
+
+# Eliminate whole states from population data
 raw_population_data = raw_population_data.loc[raw_population_data["COUNTY"] != 0]
 
 # %% [md]
@@ -114,7 +124,7 @@ with urlopen('https://raw.githubusercontent.com/plotly/datasets/master/geojson-c
 
 names = list(covid_data["name"])
 locations = list(covid_data["fips_str"])
-new_daily_cases_per_mil =  list(1e6 / 7 * covid_data['new cases in past week per capita'])
+new_daily_cases_per_mil = list(1e6 / 7 * covid_data['new cases in past week per capita'])
 color_label = "Daily New Cases per 1M Pop.,<br>Avg. over Past Week"
 
 # Fill in blank counties
@@ -146,4 +156,4 @@ fig.update_layout(
 )
 # fig.write_html(f"{datetime.datetime.date(today)}.html")
 fig.write_html(f"index.html")
-fig.show()
+# fig.show()
