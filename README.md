@@ -1,10 +1,13 @@
-# COVID-19 Hotspots
+# [COVID-19 Hotspots](https://peterdsharpe.github.io/covid-hotspots/)
 
 by Peter Sharpe
 
 ## Overview
 
 An interactive map of where in the United States the average person is currently most likely to contract COVID-19.
+
+Available at:
+https://peterdsharpe.github.io/covid-hotspots/
 
 Example map:
 
