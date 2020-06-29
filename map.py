@@ -145,5 +145,5 @@ fig.update_layout(
     title=f"Current COVID-19 Infection Rates as of {datetime.datetime.date(today)}<br>By Peter Sharpe (Data Source: The New York Times)"
 )
 fig.write_html(f"{datetime.datetime.date(today)}.html")
-fig.write_html(f"latest.html")
+fig.write_html(f"index.html")
 fig.show()
