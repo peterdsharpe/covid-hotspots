@@ -4,7 +4,7 @@ by Peter Sharpe
 
 ## Overview
 
-A map of where in the United States the average person is currently most likely to contract COVID-19.
+An interactive map of where in the United States the average person is currently most likely to contract COVID-19.
 
 Example map:
 
