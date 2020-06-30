@@ -13,6 +13,10 @@ Example map:
 
 ![COVID-19 Map](2020-06-28.png)
 
+## To Run
+
+Using Python, run `map.py`. This will generate `index.html` in the current directory. Open it in a browser.
+
 ## Data Source
 
 [New York Times COVID-19 dataset](https://github.com/nytimes/covid-19-data).
