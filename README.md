@@ -13,7 +13,7 @@ Example map:
 
 ![COVID-19 Map](2020-06-28.png)
 
-## To Run
+## Instructions
 
 Using Python, run `map.py`. This will generate `index.html` in the current directory. Open it in a browser.
 
