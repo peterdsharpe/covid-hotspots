@@ -30,7 +30,6 @@ today = datetime.datetime.today()
 # Get COVID data
 raw_covid_data = pd.read_csv(
     "https://github.com/nytimes/covid-19-data/raw/master/us-counties.csv",
-    # "https://github.com/nytimes/covid-19-data/raw/master/live/us-counties.csv",
     engine='python',
 )
 
@@ -154,6 +153,5 @@ fig.update_layout(
     margin={"r": 0, "l": 0, "b": 0},
     title=f"Current COVID-19 Infection Rates as of {datetime.datetime.date(today)}<br>By Peter Sharpe (Data Source: The New York Times)"
 )
-# fig.write_html(f"{datetime.datetime.date(today)}.html")
 fig.write_html(f"index.html")
-# fig.show()
+# fig.show() # Uncomment this for a live display
