@@ -5,20 +5,11 @@ By Peter Sharpe
 """
 # Imports:
 # %%
-
-import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
 import plotly.express as px
-import plotly.graph_objects as go
-import dash
-
-sns.set(palette=sns.color_palette("husl"))
-import cartopy.crs as ccrs
 import pandas as pd
-import requests
-import io
 import datetime
+from urllib.request import urlopen
+import json
 
 # %% [md]
 # Assumptions and data scrape:
@@ -115,8 +106,6 @@ covid_data["fips_str"] = covid_data["fips"].apply(lambda x: str(x).zfill(5))
 # %% [md]
 # # Per-Capita New Cases:
 # %%
-from urllib.request import urlopen
-import json
 
 with urlopen('https://raw.githubusercontent.com/plotly/datasets/master/geojson-counties-fips.json') as response:
     counties = json.load(response)
