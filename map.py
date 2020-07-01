@@ -141,8 +141,9 @@ fig = px.choropleth(
 fig.update_layout(
     margin={"r": 0, "l": 0, "b": 0},
     title=f'<b>COVID-19 Infection Rates Per Capita as of {datetime.datetime.date(today)}</b><br>'
-          f'By <a href="https://peterdsharpe.github.io/">Peter Sharpe</a> '
-          f'(Data Source: <a href="https://github.com/nytimes/covid-19-data">The New York Times</a>)'
+          f'By <a href="https://peterdsharpe.github.io/">Peter Sharpe</a> | '
+          f'Data Source: <a href="https://github.com/nytimes/covid-19-data">The New York Times</a> | '
+          f'<a href="https://github.com/peterdsharpe/covid-hotspots">Source Code</a>'
 )
 fig.write_html(f"index.html")
 # fig.show() # Uncomment this for a live display
