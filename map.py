@@ -10,6 +10,7 @@ import pandas as pd
 import datetime
 from urllib.request import urlopen
 import json
+import numpy as np
 
 # %% [md]
 # Assumptions and data scrape:
@@ -84,10 +85,16 @@ county_populations = pd.DataFrame({
     "population": raw_population_data["POPESTIMATE2019"]
 })
 
+
+def get_population(fips):
+    index = county_populations["fips"].searchsorted(fips)
+    if index == len(county_populations):  # no population data exists for this county
+        return np.NaN
+    return county_populations["population"].iloc[index]
+
+
 covid_data["population"] = [
-    county_populations["population"].iloc[
-        county_populations["fips"].searchsorted(fips)
-    ]
+    get_population(fips)
     for fips in covid_data["fips"]
 ]
 
