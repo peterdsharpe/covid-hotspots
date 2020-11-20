@@ -119,8 +119,8 @@ with urlopen('https://raw.githubusercontent.com/plotly/datasets/master/geojson-c
 
 names = list(covid_data["name"])
 locations = list(covid_data["fips_str"])
-new_daily_cases_per_mil = list(1e6 / 7 * covid_data['new cases in past week per capita'])
-color_label = "Daily New Cases per 1M Pop.,<br>Avg. over Past Week"
+new_daily_cases_per_100k = list(1e5 / 7 * covid_data['new cases in past week per capita'])
+color_label = "Daily New Cases per 100k,<br>1-wk. moving avg."
 
 # Fill in blank counties
 county_ids = [
@@ -130,19 +130,19 @@ county_ids = [
 for id in county_ids:
     if id not in locations:
         locations.append(id)
-        new_daily_cases_per_mil.append(0)
+        new_daily_cases_per_100k.append(0)
         names.append("No Data")
 
 fig = px.choropleth(
     # covid_data,
     geojson=counties,
     locations=locations,
-    color=new_daily_cases_per_mil,
+    color=new_daily_cases_per_100k,
     color_continuous_scale="viridis",
-    range_color=(0, 250),
+    range_color=(0, 100),
     scope="usa",
     hover_name=names,
-    hover_data={color_label: new_daily_cases_per_mil},
+    hover_data={color_label: new_daily_cases_per_100k},
     labels={"color": color_label},
 )
 fig.update_layout(
