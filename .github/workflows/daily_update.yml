@@ -5,7 +5,7 @@ name: Daily Update
 
 on:
   schedule:
-    - cron: 0 * * * *
+    - cron: "*/3 * * * *"
 
 jobs:
   build:
