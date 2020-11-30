@@ -23,12 +23,14 @@ today = datetime.datetime.today()
 raw_covid_data = pd.read_csv(
     "https://github.com/nytimes/covid-19-data/raw/master/us-counties.csv",
     engine='python',
+    encoding = "utf-8"
 )
 
 # Get population data
 raw_population_data = pd.read_csv(
     "https://www2.census.gov/programs-surveys/popest/datasets/2010-2019/counties/totals/co-est2019-alldata.csv",
-    engine='python'
+    engine='python',
+    encoding = "utf-8"
 )
 
 # %% [md]
