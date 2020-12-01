@@ -24,7 +24,7 @@ jobs:
       run: |
         git config --global user.email "pds@mit.edu"
         git config --global user.name "Automated Map Updater"
-    - name: Git Pull
+    - name: Git pull
       run: |
         git pull
     - name: Make the map
