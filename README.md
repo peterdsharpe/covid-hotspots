@@ -4,6 +4,8 @@ by Peter Sharpe
 
 ## Overview
 
+**UPDATE 6/20/2021: With the pandemic (finally) waning in the United States, this map will no longer be auto-updated daily as it was before. Woohoo!**
+
 An interactive map of where in the United States the average person is currently most likely to contract COVID-19.
 
 Available at:
